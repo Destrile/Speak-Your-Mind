@@ -8,6 +8,9 @@ public class ItemManager : MonoBehaviour
     public int bananas = 0;
     public int goalLemons = 3;
     public int lemons = 0;
+    public GameObject target;
+    public GameObject target1;
+    public GameObject target2;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class ItemManager : MonoBehaviour
         if(bananas==goalBananas && lemons == goalLemons)
         {
             Debug.Log("Win");
+            target2.SetActive(true);
         }
     }
     public void UnSnappedFruit(GameObject snapped)
@@ -43,6 +47,8 @@ public class ItemManager : MonoBehaviour
             if(bananas == goalBananas)
             {
                 Debug.Log("Winner");
+                target.SetActive(true);
+                AchieveGoal();
             }
         }
         if (snapped.name.StartsWith("Lemon"))
@@ -51,6 +57,8 @@ public class ItemManager : MonoBehaviour
             if (lemons == goalLemons)
             {
                 Debug.Log("Winner");
+                target1.SetActive(true);
+                AchieveGoal();
             }
         }
     }
